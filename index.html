@@ -51,10 +51,10 @@ img{display:block}
 @keyframes iFade{to{opacity:0}}
 @keyframes iBar{from{transform:translateY(var(--from))}to{transform:translateY(0)}}
 @keyframes iGlow{0%{opacity:0;transform:scale(.5)}35%{opacity:1}100%{opacity:1;transform:scale(1.4)}}
-@keyframes iWord{0%{opacity:0;filter:blur(16px);transform:translateY(.5em) scale(1.08)}100%{opacity:1;filter:blur(0);transform:none}}
-@keyframes iBig{0%{opacity:0;filter:blur(26px);transform:scale(2.1);letter-spacing:.25em}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:scale(1);letter-spacing:-0.035em}}
+@keyframes iWord{0%{opacity:0;transform:translateY(.5em) scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes iBig{0%{opacity:0;transform:scale(2.1);letter-spacing:.25em}55%{opacity:1}100%{opacity:1;transform:scale(1);letter-spacing:-0.035em}}
 @keyframes iShake{0%,100%{transform:translate(0,0)}15%{transform:translate(-9px,4px)}35%{transform:translate(7px,-5px)}55%{transform:translate(-4px,3px)}75%{transform:translate(3px,-2px)}}
-@keyframes iPush{to{transform:scale(1.3);filter:blur(10px);opacity:0}}
+@keyframes iPush{to{transform:scale(1.3);opacity:0}}
 @keyframes iFlash{0%{opacity:0}25%{opacity:.55}100%{opacity:0}}
 @keyframes iRing{0%{opacity:.9;transform:scale(0)}100%{opacity:0;transform:scale(3.4)}}
 @keyframes iStreak{0%{transform:scaleX(0);opacity:0}25%{opacity:1}100%{transform:scaleX(1);opacity:0}}
@@ -72,7 +72,7 @@ img{display:block}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 @keyframes rise{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:1}100%{transform:translateY(-160px) scale(1);opacity:0}}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
-@keyframes wIn{0%{opacity:0;filter:blur(14px);transform:translateY(.45em)}100%{opacity:1;filter:blur(0);transform:none}}
+@keyframes wIn{0%{opacity:0;transform:translateY(.45em)}100%{opacity:1;transform:none}}
 @keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.06);opacity:1}100%{transform:scale(1);opacity:1}}
 .grain{animation:grain .9s steps(5) infinite}
 .fl{animation:floaty 6s ease-in-out infinite}
@@ -136,6 +136,8 @@ img{display:block}
 /* ---------- TELÉFONO (80% de las visitas) ---------- */
 @media (max-width:640px){
 .blob{animation:none!important}
+.js [data-reveal]{transform:none!important;transition:opacity .45s ease var(--d,0ms)!important}
+[style*="-webkit-text-stroke"]{display:none!important}
 html{overflow-x:hidden}
 .navbar{padding:10px 16px!important;flex-wrap:nowrap!important;gap:10px!important}
 .navbar>a:first-child{font-size:19px!important}
@@ -207,7 +209,7 @@ html{scroll-behavior:auto}
 <div class="i-streak" aria-hidden="true" style="height:2px;margin:26px auto 0;width:min(80vw,900px);background:linear-gradient(90deg,transparent,#FFFFFF,#FF6B00,transparent);box-shadow:0 0 20px #FF6B00"></div>
 </div>
 
-<img class="i-masc" src="images/mascota.png" alt="" aria-hidden="true" width="527" height="331" style="position:absolute;left:50%;bottom:calc(11% + 14px);width:120px;height:auto;margin-left:-60px">
+<img decoding="async" class="i-masc" src="images/mascota.png" alt="" aria-hidden="true" width="527" height="331" style="position:absolute;left:50%;bottom:calc(11% + 14px);width:120px;height:auto;margin-left:-60px">
 <div class="i-flash" aria-hidden="true" style="position:absolute;inset:0;background:#FFE3CC;pointer-events:none"></div>
 <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:11%;height:2px;background:rgba(255,255,255,.08)"><div class="i-prog" style="height:100%;background:linear-gradient(90deg,#FFB066,#FF6B00)"></div></div>
 </div>
@@ -220,9 +222,9 @@ html{scroll-behavior:auto}
 <!-- ================= MASCOTA (3 apariciones) ================= -->
 <div class="masc" data-mascot="1" data-mood="idle" aria-live="polite">
 <div class="m-body">
-<img class="m-s" data-s="laptop" src="images/mascota-laptop.png" alt="" aria-hidden="true" width="424" height="360">
-<img class="m-s" data-s="chef" src="images/mascota-chef.png" alt="" aria-hidden="true" width="424" height="360">
-<img class="m-s" data-s="billetera" src="images/mascota-billetera.png" alt="" aria-hidden="true" width="424" height="360">
+<img decoding="async" class="m-s" data-s="laptop" src="images/mascota-laptop.png" alt="" aria-hidden="true" width="424" height="360">
+<img decoding="async" class="m-s" data-s="chef" src="images/mascota-chef.png" alt="" aria-hidden="true" width="424" height="360">
+<img decoding="async" class="m-s" data-s="billetera" src="images/mascota-billetera.png" alt="" aria-hidden="true" width="424" height="360">
 </div>
 <span class="m-say" data-say-text="1"></span>
 </div>
@@ -293,7 +295,7 @@ html{scroll-behavior:auto}
 </svg>
 <div class="tilt" data-tilt="1" style="position:relative">
 <div class="fl" style="border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 90px rgba(255,107,0,.3)">
-<img src="images/robot-claude-code.png" alt="Claude Code: robot naranja con una laptop" width="735" height="413" style="width:100%;height:auto">
+<img decoding="async" src="images/robot-claude-code.png" alt="Claude Code: robot naranja con una laptop" width="735" height="413" style="width:100%;height:auto">
 </div>
 </div>
 <svg class="rib fl2" aria-hidden="true" viewBox="0 0 300 170" style="right:-9%;bottom:6%;width:44%;height:auto;z-index:3;animation-delay:-3s">
@@ -412,7 +414,7 @@ html{scroll-behavior:auto}
 <use href="#rpF" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="8" stroke-linecap="round" transform="translate(0,-13)"/>
 <text><textPath href="#rpF" startOffset="5%" dy="5">Planear · Diseñar · Mejorar · Optimizar · Publicar · Mantener</textPath></text>
 </svg>
-<img class="stk fl" src="images/mascota-audifonos.png" alt="" width="424" height="360" style="left:calc(50% - 690px);bottom:290px">
+<img decoding="async" class="stk fl" src="images/mascota-audifonos.png" alt="" width="424" height="360" style="left:calc(50% - 690px);bottom:290px">
 <div class="glass fl2" style="left:calc(50% - 690px);bottom:160px"><span class="gi">1</span><div><b>Paso a paso</b><small>Partimos de lo básico</small></div></div>
 </div>
 <div style="position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:120px 20px 110px;box-sizing:border-box">
@@ -450,7 +452,7 @@ html{scroll-behavior:auto}
 <use href="#rpT" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="8" stroke-linecap="round" transform="translate(-12,0)"/>
 <text><textPath href="#rpT" startOffset="3%" dy="5">Planear · Diseñar · Mejorar · Optimizar · Publicar · Mantener</textPath></text>
 </svg>
-<img class="stk fl" src="images/mascota-laptop.png" alt="" width="424" height="360" style="left:calc(50% - 690px);top:330px">
+<img decoding="async" class="stk fl" src="images/mascota-laptop.png" alt="" width="424" height="360" style="left:calc(50% - 690px);top:330px">
 <div class="glass fl2" style="left:calc(50% - 690px);top:470px"><span class="gi">6</span><div><b>6 pasos</b><small>De la idea al catálogo publicado</small></div></div>
 <div class="glass fl" style="left:calc(50% + 520px);top:230px"><span class="gi">&lt;/&gt;</span><div><b>Sin código</b><small>Claude lo arma por ti</small></div></div>
 <div class="glass fl2" style="left:calc(50% + 520px);top:370px;animation-delay:-2s"><span class="gi">$</span><div><b>Precios en $ y Bs</b><small>A tasa BCV</small></div></div>
@@ -568,7 +570,7 @@ html{scroll-behavior:auto}
 <use href="#rpP" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="8" stroke-linecap="round" transform="translate(-12,0)"/>
 <text><textPath href="#rpP" startOffset="4%" dy="5">Publicar · Mantener · Publicar</textPath></text>
 </svg>
-<img class="stk fl" src="images/mascota-cohete.png" alt="" width="424" height="360" style="left:calc(50% - 690px);top:230px">
+<img decoding="async" class="stk fl" src="images/mascota-cohete.png" alt="" width="424" height="360" style="left:calc(50% - 690px);top:230px">
 <div class="glass fl2" style="left:calc(50% - 690px);top:370px"><span class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/></svg></span><div><b>Soporte</b><small>Grupo de WhatsApp permanente</small></div></div>
 <div class="glass fl" style="left:calc(50% + 520px);top:200px;animation-delay:-3s"><span class="gi">★</span><div><b>Taller presencial</b><small>Worklab, Av. Libertador</small></div></div>
 </div>
@@ -678,14 +680,15 @@ class Page {
         this._skew = Math.max(-10, Math.min(10, this._skew + (y - lastY) * 0.12));
         lastY = y;
         const vh = window.innerHeight || 800;
-        fills.forEach((f) => {
+        if (!phone) fills.forEach((f) => {
           const r = f.getBoundingClientRect();
           const v = Math.max(0, Math.min(1, (vh * 0.78 - r.top) / Math.max(1, r.height * 0.95)));
           f.style.setProperty('--f', (v * 100).toFixed(1));
         });
       });
     };
-    window.addEventListener('scroll', this._onScroll, true);
+    if (phone) fills.forEach((f) => f.style.setProperty('--f', '100'));
+    window.addEventListener('scroll', this._onScroll, { capture: true, passive: true });
     this._onScroll();
 
     if (reduce) {
