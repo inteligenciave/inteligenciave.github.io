@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller: Haz tu propio catálogo digital con Claude | Inteligencia.VE</title>
+<meta name="description" content="Aprende a crear, publicar y mantener el catálogo de tu negocio sin saber programar. Taller presencial de Inteligencia.VE. Pedidos directo a tu WhatsApp.">
+<meta name="theme-color" content="#050505">
+<!-- Vista previa al compartir por WhatsApp: si cambias de dirección (dominio propio), actualiza og:image y og:url -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_VE">
+<meta property="og:title" content="Haz tu propio catálogo digital con Claude">
+<meta property="og:description" content="Taller presencial de Inteligencia.VE. Sin código, con pedidos por WhatsApp.">
+<meta property="og:image" content="https://alejandrofaraco982-glitch.github.io/inteligencia-ve/images/banner-whatsapp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://alejandrofaraco982-glitch.github.io/inteligencia-ve/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+html{scroll-behavior:smooth}
+body{margin:0;background:#050505;font-family:'Outfit',system-ui,sans-serif}
+a{text-decoration:none;-webkit-tap-highlight-color:transparent}
+button{-webkit-tap-highlight-color:transparent}
+img{display:block}
+
+/* ---------- INTRO CINEMATOGRÁFICA (3 s) ---------- */
+.intro{animation:iHide 0s 4s forwards}
+.i-half{animation:iHalf .65s cubic-bezier(.75,0,.2,1) 3.35s forwards}
+.i-fx{animation:iFade .45s ease-in 3.3s forwards}
+.i-bar{animation:iBar .55s cubic-bezier(.2,.8,.2,1) forwards}
+.i-glow{animation:iGlow 2.4s ease-out forwards}
+.i-kicker{opacity:0;animation:iWord .7s ease-out .15s forwards}
+.i-w{display:inline-block;opacity:0;animation:iWord .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d)}
+.i-big{display:inline-block;opacity:0;animation:iBig .85s cubic-bezier(.16,.9,.2,1) 1.3s forwards}
+.i-cam{animation:iShake .45s linear 2.5s,iPush .6s cubic-bezier(.6,0,.4,1) 3.3s forwards}
+.i-flash{opacity:0;animation:iFlash .5s ease-out 2.5s}
+.i-ring{opacity:0;animation:iRing 1s cubic-bezier(.1,.7,.3,1) 2.5s}
+.i-streak{transform:scaleX(0);animation:iStreak 1.1s cubic-bezier(.2,.7,.2,1) 2.45s}
+.i-prog{transform:scaleX(0);transform-origin:0 50%;animation:iProg 3.35s linear forwards}
+.i-masc{opacity:0;animation:iMasc .7s cubic-bezier(.3,1.5,.5,1) 2.65s forwards}
+.skip .intro{animation:iHide 0s .55s forwards}
+.skip .i-half{animation:iHalf .5s cubic-bezier(.75,0,.2,1) 0s forwards}
+.skip .i-fx{animation:iFade .3s ease-in 0s forwards}
+.done .intro{display:none}
+@keyframes iHide{to{visibility:hidden;pointer-events:none}}
+@keyframes iHalf{to{transform:translateY(var(--out))}}
+@keyframes iFade{to{opacity:0}}
+@keyframes iBar{from{transform:translateY(var(--from))}to{transform:translateY(0)}}
+@keyframes iGlow{0%{opacity:0;transform:scale(.5)}35%{opacity:1}100%{opacity:1;transform:scale(1.4)}}
+@keyframes iWord{0%{opacity:0;filter:blur(16px);transform:translateY(.5em) scale(1.08)}100%{opacity:1;filter:blur(0);transform:none}}
+@keyframes iBig{0%{opacity:0;filter:blur(26px);transform:scale(2.1);letter-spacing:.25em}55%{opacity:1}100%{opacity:1;filter:blur(0);transform:scale(1);letter-spacing:-0.035em}}
+@keyframes iShake{0%,100%{transform:translate(0,0)}15%{transform:translate(-9px,4px)}35%{transform:translate(7px,-5px)}55%{transform:translate(-4px,3px)}75%{transform:translate(3px,-2px)}}
+@keyframes iPush{to{transform:scale(1.3);filter:blur(10px);opacity:0}}
+@keyframes iFlash{0%{opacity:0}25%{opacity:.55}100%{opacity:0}}
+@keyframes iRing{0%{opacity:.9;transform:scale(0)}100%{opacity:0;transform:scale(3.4)}}
+@keyframes iStreak{0%{transform:scaleX(0);opacity:0}25%{opacity:1}100%{transform:scaleX(1);opacity:0}}
+@keyframes iProg{to{transform:scaleX(1)}}
+@keyframes iMasc{0%{opacity:0;transform:translateY(140px) scale(.5) rotate(-12deg)}60%{opacity:1;transform:translateY(-18px) scale(1.06) rotate(4deg)}100%{opacity:1;transform:none}}
+
+/* ---------- MOVIMIENTO GENERAL ---------- */
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes floaty2{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(12px) rotate(2deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(7%,-5%) scale(1.18)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,107,0,.55)}100%{box-shadow:0 0 0 22px rgba(255,107,0,0)}}
+@keyframes rip{from{opacity:.55;transform:scale(0)}to{opacity:0;transform:scale(7)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes rise{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:1}100%{transform:translateY(-160px) scale(1);opacity:0}}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+@keyframes wIn{0%{opacity:0;filter:blur(14px);transform:translateY(.45em)}100%{opacity:1;filter:blur(0);transform:none}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.06);opacity:1}100%{transform:scale(1);opacity:1}}
+.grain{animation:grain .9s steps(5) infinite}
+.fl{animation:floaty 6s ease-in-out infinite}
+.fl2{animation:floaty2 7s ease-in-out infinite}
+.spin{animation:spin 24s linear infinite}
+.marq{display:flex;width:max-content;animation:marq 30s linear infinite}
+.marq.rev{animation-direction:reverse;animation-duration:55s}
+.blob{animation:drift 14s ease-in-out infinite}
+.pt{position:absolute;border-radius:50%;background:#FF8A2B;box-shadow:0 0 12px #FF6B00;animation:rise var(--dur,6s) ease-in infinite;animation-delay:var(--d,0s)}
+.w{display:inline-block;opacity:0;animation:wIn 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,3.75s) + var(--d,0ms))}
+.hIn{opacity:0;animation:wIn 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,3.75s) + var(--d,0ms))}
+.skip{--i:.3s}
+.js [data-reveal]{opacity:0;transform:translate3d(0,48px,0);transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms),filter 1s ease var(--d,0ms);filter:blur(6px)}
+.js [data-reveal="left"]{transform:translate3d(-64px,0,0)}
+.js [data-reveal="right"]{transform:translate3d(64px,0,0)}
+.js [data-reveal="scale"]{transform:scale(.88)}
+.js [data-reveal="flip"]{transform:perspective(900px) rotateX(24deg) translateY(40px)}
+.js [data-reveal].in{opacity:1;transform:none;filter:none}
+.tilt{transform:perspective(900px) rotateX(calc(var(--ry,0) * -7deg)) rotateY(calc(var(--rx,0) * 9deg));transition:transform .25s ease-out;will-change:transform}
+.spot{position:relative;overflow:hidden;transition:border-color .3s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.spot::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(255,107,0,.22),transparent 62%);opacity:0;transition:opacity .3s}
+.spot:hover::before,.spot:active::before{opacity:1}
+.spot:hover{border-color:rgba(255,107,0,.55)!important;transform:translateY(-5px)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .2s,filter .2s,translate .35s cubic-bezier(.2,.7,.2,1);touch-action:manipulation;cursor:pointer}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn:active{transform:scale(.95)}
+.btn::after{content:'';position:absolute;left:var(--px,50%);top:var(--py,50%);width:40px;height:40px;margin:-20px;border-radius:50%;background:rgba(255,255,255,.6);opacity:0;pointer-events:none}
+.btn.rip::after{animation:rip .65s ease-out}
+.mag{translate:calc(var(--tx,0) * 1px) calc(var(--ty,0) * 1px)}
+.pulse{animation:pulse 2.2s ease-out infinite}
+.navlink{transition:background .25s,color .25s}
+.navlink:hover{background:rgba(255,255,255,.12);color:#FFFFFF}
+.dot{transition:background .5s,color .5s,border-color .5s,box-shadow .5s}
+.in .dot{background:var(--ac)!important;color:#0A0A0A!important;border-color:var(--ac)!important;box-shadow:0 0 0 8px rgba(255,107,0,.15),0 0 30px rgba(255,107,0,.5)}
+.pcard{animation:pop .45s cubic-bezier(.3,1.4,.5,1) both}
+.faqA{animation:wIn .45s ease-out both}
+
+/* ---------- MASCOTA ---------- */
+.masc{position:fixed;right:16px;bottom:16px;width:112px;z-index:55;pointer-events:none;opacity:0;transform:translateY(24px) scale(.9);transform-origin:100% 100%;transition:opacity .4s,transform .45s cubic-bezier(.3,1.5,.5,1)}
+.masc.on{opacity:1;transform:none}
+.m-body{position:relative;transform-origin:50% 100%}
+.masc.on .m-body{animation:mIdle 2.4s ease-in-out infinite}
+@keyframes mIdle{0%,100%{transform:scale(1,1)}50%{transform:scale(1.03,.96)}}
+.m-s{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.55))}
+.m-s:not(:first-child){position:absolute;left:0;top:0}
+.m-s{visibility:hidden}
+[data-mood="idle"] .m-s[data-s="laptop"],[data-mood="cook"] .m-s[data-s="chef"],[data-mood="pay"] .m-s[data-s="billetera"]{visibility:visible}
+.m-say{position:absolute;right:6px;bottom:100%;margin-bottom:10px;width:max-content;max-width:min(250px,calc(100vw - 48px));box-sizing:border-box;background:#FFFFFF;color:#0A0A0A;font-weight:600;font-size:15px;line-height:1.35;padding:11px 15px;border-radius:16px 16px 4px 16px;box-shadow:0 10px 28px rgba(0,0,0,.45)}
+
+/* ---------- CINTAS 3D Y TARJETAS DE VIDRIO ---------- */
+.rib{position:absolute;pointer-events:none;overflow:visible;filter:drop-shadow(0 18px 28px rgba(255,107,0,.32))}
+.rib text{font-family:'Outfit',system-ui,sans-serif;font-weight:700;font-size:15px;letter-spacing:.32em;text-transform:uppercase;fill:#1A0A00}
+.side{position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;overflow:hidden;pointer-events:none;z-index:0;display:none}
+@media (min-width:1400px){.side{display:block}}
+.glass{position:absolute;box-sizing:border-box;width:172px;display:flex;gap:11px;align-items:center;padding:13px 14px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.22)}
+.glass b{display:block;font-size:14px;font-weight:600;line-height:1.2;color:#FFFFFF}
+.glass small{display:block;margin-top:3px;font-size:12px;line-height:1.35;color:#C9C9C9}
+.gi{flex:none;width:34px;height:34px;border-radius:11px;background:linear-gradient(145deg,#FFB066,#FF6B00);display:flex;align-items:center;justify-content:center;color:#0A0A0A;font-weight:800;font-size:16px;box-shadow:0 6px 16px rgba(255,107,0,.4)}
+.stk{position:absolute;width:150px;height:auto;filter:drop-shadow(0 14px 18px rgba(0,0,0,.55))}
+
+/* ---------- TELÉFONO (80% de las visitas) ---------- */
+@media (max-width:640px){
+html{overflow-x:hidden}
+.navbar{padding:10px 16px!important;flex-wrap:nowrap!important;gap:10px!important}
+.navbar>a:first-child{font-size:19px!important}
+.navpill{display:none!important}
+.navbar .btn{min-height:44px;padding:0 20px!important;font-size:15px!important}
+#inicio div[style*="padding:56px 20px 110px"]{padding:24px 18px 64px!important;gap:36px 24px!important}
+#inicio h1{font-size:clamp(40px,12.5vw,56px)!important}
+#inicio p{font-size:18px!important}
+#inicio .btn{width:100%;box-sizing:border-box;min-height:54px}
+div[style*="padding:120px 20px 110px"]{padding:64px 18px 72px!important}
+#temario{padding:16px 16px 72px!important}
+div[style*="padding:110px 20px;"]{padding:64px 18px!important}
+#detalles{padding:64px 18px 24px!important}
+#preguntas{padding:56px 18px 32px!important}
+#inscripcion{padding:24px 14px 56px!important}
+#inscripcion div[style*="padding:80px 28px"]{padding:48px 20px!important;border-radius:28px!important}
+#inscripcion .btn{width:100%;box-sizing:border-box;min-height:58px;padding:16px 20px!important}
+.spot[style*="min-height:270px"]{min-height:180px!important;padding:24px!important}
+.spot div[style*="font-size:32px"]{font-size:26px!important}
+.tl{gap:14px!important}
+.tl .dot{width:44px!important;height:44px!important;font-size:15px!important}
+.tl .spot{padding:18px 18px!important}
+.tl h3{font-size:20px!important}
+.tl-line{left:21px!important}
+#shopView>div:first-child{height:auto!important;overflow:visible!important}
+#chips{flex-wrap:wrap!important;overflow:visible!important}
+#chips button{min-height:40px!important}
+.phone,#catalogo{overflow:clip!important}
+#cartBar{position:sticky!important;bottom:10px;z-index:5}
+.masc{width:88px;right:10px;bottom:12px}
+.m-say{font-size:14px;padding:9px 12px;max-width:min(220px,calc(100vw - 32px))}
+}
+
+@media (prefers-reduced-motion:reduce){
+*{animation:none!important;transition:none!important}
+.intro{display:none!important}
+.w,.hIn{opacity:1!important}
+.js [data-reveal]{opacity:1!important;transform:none!important;filter:none!important}
+html{scroll-behavior:auto}
+}
+
+.hid{display:none!important}
+#sentView:not(.hid),#cartBar:not(.hid){display:flex}
+</style>
+</head>
+<body>
+<div data-lp="1" style="--ac:#FF6B00;width:100%;background:#050505;color:#FFFFFF;font-family:'Outfit',system-ui,sans-serif;position:relative;overflow-x:clip">
+<div data-fx="1" style="position:relative;width:100%">
+
+<!-- ================= INTRO ================= -->
+<div class="intro" style="position:fixed;inset:0;z-index:100;overflow:hidden">
+<div class="i-half" aria-hidden="true" style="--out:-101%;position:absolute;left:0;right:0;top:0;height:50.5%;background:#060403"></div>
+<div class="i-half" aria-hidden="true" style="--out:101%;position:absolute;left:0;right:0;bottom:0;height:50.5%;background:#060403"></div>
+<div class="i-fx" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+<div class="i-glow" aria-hidden="true" style="position:absolute;left:50%;top:50%;width:900px;height:900px;margin:-450px 0 0 -450px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.5),rgba(255,107,0,.12) 40%,rgba(255,107,0,0) 68%)"></div>
+<div class="i-ring" aria-hidden="true" style="position:absolute;left:50%;top:50%;width:260px;height:260px;margin:-130px 0 0 -130px;border-radius:50%;border:2px solid #FFB066"></div>
+<div class="i-bar" aria-hidden="true" style="--from:-100%;position:absolute;left:0;right:0;top:0;height:11%;background:#000000;border-bottom:1px solid rgba(255,107,0,.45)"></div>
+<div class="i-bar" aria-hidden="true" style="--from:100%;position:absolute;left:0;right:0;bottom:0;height:11%;background:#000000;border-top:1px solid rgba(255,107,0,.45)"></div>
+<div style="position:absolute;top:calc(11% + 18px);left:20px;font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFFFFF" class="i-kicker">Inteligencia<span style="color:#FF6B00">.VE</span></div>
+<button type="button" id="skipIntro" style="position:absolute;top:calc(11% + 8px);right:16px;min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.4);color:#FFFFFF;font:inherit;font-size:14px;cursor:pointer">Saltar</button>
+
+<div class="i-cam" style="position:relative;text-align:center;padding:0 20px;max-width:1100px">
+<div class="i-kicker" style="font-size:clamp(13px,1.6vw,16px);letter-spacing:.32em;text-transform:uppercase;color:#FFB066;margin-bottom:22px">Una pregunta antes de entrar</div>
+<h2 style="margin:0;font-weight:300;line-height:1.02;letter-spacing:-0.03em">
+<span style="display:block;font-size:clamp(30px,5.4vw,72px)"><span class="i-w" style="--d:.25s">¿Estás</span> <span class="i-w" style="--d:.33s">listo</span> <span class="i-w" style="--d:.41s">para</span> <span class="i-w" style="--d:.49s">llevar</span></span>
+<span style="display:block;font-size:clamp(30px,5.4vw,72px)"><span class="i-w" style="--d:.6s">tu</span> <span class="i-w" style="--d:.68s">empresa</span> <span class="i-w" style="--d:.76s">al</span></span>
+<span class="i-big" style="display:block;margin-top:8px;font-size:clamp(46px,10vw,150px);font-weight:900;color:#FF6B00;text-shadow:0 0 50px rgba(255,107,0,.6)">siguiente nivel?</span>
+</h2>
+<div class="i-streak" aria-hidden="true" style="height:2px;margin:26px auto 0;width:min(80vw,900px);background:linear-gradient(90deg,transparent,#FFFFFF,#FF6B00,transparent);box-shadow:0 0 20px #FF6B00"></div>
+</div>
+
+<img class="i-masc" src="images/mascota.png" alt="" aria-hidden="true" width="527" height="331" style="position:absolute;left:50%;bottom:calc(11% + 14px);width:120px;height:auto;margin-left:-60px">
+<div class="i-flash" aria-hidden="true" style="position:absolute;inset:0;background:#FFE3CC;pointer-events:none"></div>
+<div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:11%;height:2px;background:rgba(255,255,255,.08)"><div class="i-prog" style="height:100%;background:linear-gradient(90deg,#FFB066,#FF6B00)"></div></div>
+</div>
+</div>
+
+<!-- textura de cine, progreso y luz -->
+<svg class="grain" aria-hidden="true" style="position:fixed;left:-50%;top:-50%;width:200%;height:200%;pointer-events:none;z-index:110;opacity:.06"><filter id="gn"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"></feTurbulence></filter><rect width="100%" height="100%" filter="url(#gn)"></rect></svg>
+<div aria-hidden="true" style="position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:linear-gradient(90deg,#FFB066,var(--ac));transform-origin:0 50%;transform:scaleX(var(--p,0));box-shadow:0 0 12px var(--ac)"></div>
+<div aria-hidden="true" style="position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(255,107,0,.16),transparent 65%);transform:translate3d(calc(var(--cx,-900) * 1px),calc(var(--cy,-900) * 1px),0);transition:transform .12s ease-out"></div>
+
+<!-- ================= MASCOTA (3 apariciones) ================= -->
+<div class="masc" data-mascot="1" data-mood="idle" aria-live="polite">
+<div class="m-body">
+<img class="m-s" data-s="laptop" src="images/mascota-laptop.png" alt="" aria-hidden="true" width="424" height="360">
+<img class="m-s" data-s="chef" src="images/mascota-chef.png" alt="" aria-hidden="true" width="424" height="360">
+<img class="m-s" data-s="billetera" src="images/mascota-billetera.png" alt="" aria-hidden="true" width="424" height="360">
+</div>
+<span class="m-say" data-say-text="1"></span>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="gRib" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFC48A"/><stop offset=".45" stop-color="#FF6B00"/><stop offset="1" stop-color="#C94A00"/></linearGradient>
+</defs></svg>
+
+<!-- ================= NAV ================= -->
+<div style="position:sticky;top:0;z-index:40;background:rgba(5,5,5,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)">
+<div class="navbar" style="max-width:1200px;margin:0 auto;padding:14px 20px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+<a href="#inicio" style="font-weight:800;font-size:21px;letter-spacing:.02em;color:#FFFFFF;text-transform:uppercase">Inteligencia<span style="color:var(--ac)">.VE</span></a>
+<div class="navpill" style="display:flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)">
+<a class="navlink" href="#temario" style="padding:9px 16px;border-radius:999px;font-size:15px;color:#D6D6D6">Temario</a>
+<a class="navlink" href="#catalogo" style="padding:9px 16px;border-radius:999px;font-size:15px;color:#D6D6D6">Catálogo</a>
+<a class="navlink" href="#detalles" style="padding:9px 16px;border-radius:999px;font-size:15px;color:#D6D6D6">Detalles</a>
+<a class="navlink" href="#preguntas" style="padding:9px 16px;border-radius:999px;font-size:15px;color:#D6D6D6">Preguntas</a>
+</div>
+<a class="btn mag" href="#" data-wa="1" style="background:#FFFFFF;color:#0A0A0A;font-weight:600;font-size:15px;padding:12px 22px;border-radius:999px">Inscribirme</a>
+</div>
+</div>
+
+<!-- ================= HERO ================= -->
+<div id="inicio" style="position:relative;overflow:hidden">
+<div class="blob" aria-hidden="true" style="position:absolute;right:-12%;top:-8%;width:62vw;max-width:820px;height:62vw;max-height:820px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.55),rgba(255,107,0,0) 68%);filter:blur(40px);transform:translateY(calc(min(var(--sy,0),1200) * .2px))"></div>
+<div class="blob" aria-hidden="true" style="position:absolute;left:-18%;top:42%;width:50vw;max-width:640px;height:50vw;max-height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,150,40,.28),rgba(255,150,40,0) 68%);filter:blur(50px);animation-delay:-6s"></div>
+<div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none">
+<span class="pt" style="left:8%;top:78%;width:5px;height:5px;--dur:7s;--d:0s"></span>
+<span class="pt" style="left:18%;top:64%;width:3px;height:3px;--dur:5.5s;--d:1.2s"></span>
+<span class="pt" style="left:31%;top:88%;width:4px;height:4px;--dur:8s;--d:2s"></span>
+<span class="pt" style="left:44%;top:72%;width:3px;height:3px;--dur:6s;--d:.6s"></span>
+<span class="pt" style="left:52%;top:92%;width:6px;height:6px;--dur:9s;--d:3s"></span>
+<span class="pt" style="left:61%;top:70%;width:3px;height:3px;--dur:6.5s;--d:1.8s"></span>
+<span class="pt" style="left:70%;top:84%;width:4px;height:4px;--dur:7.5s;--d:.3s"></span>
+<span class="pt" style="left:79%;top:60%;width:3px;height:3px;--dur:5s;--d:2.6s"></span>
+<span class="pt" style="left:88%;top:80%;width:5px;height:5px;--dur:8.5s;--d:1s"></span>
+<span class="pt" style="left:95%;top:68%;width:3px;height:3px;--dur:6s;--d:3.4s"></span>
+</div>
+
+<div style="position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:56px 20px 110px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:64px 40px;align-items:center">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:28px;align-items:flex-start">
+<span class="hIn" style="--d:0ms;font-size:14px;font-weight:500;color:#FFB066;border:1px solid rgba(255,176,102,.4);padding:7px 16px;border-radius:999px;display:inline-flex;align-items:center;gap:8px"><span class="pulse" style="width:8px;height:8px;border-radius:50%;background:var(--ac);display:inline-block"></span>Taller presencial</span>
+<h1 style="margin:0;font-size:clamp(48px,7.4vw,108px);line-height:.98;letter-spacing:-0.04em;font-weight:300">
+<span style="display:block"><span class="w" style="--d:80ms">Haz</span> <span class="w" style="--d:160ms">tu</span> <span class="w" style="--d:240ms">propio</span></span>
+<span style="display:block;color:var(--ac);font-weight:700"><span class="w" style="--d:360ms">catálogo</span> <span class="w" style="--d:460ms">digital</span></span>
+<span style="display:block"><span class="w" style="--d:580ms">con</span> <span class="w" style="--d:660ms">Claude</span></span>
+</h1>
+<p class="hIn" style="--d:800ms;margin:0;font-size:20px;line-height:1.55;color:#C4C4C4;max-width:520px">Crea, publica y mantén el catálogo de tu negocio sin saber programar. Tus clientes piden directo a tu WhatsApp.</p>
+<div class="hIn" style="--d:950ms;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+<a class="btn mag" href="#" data-wa="1" style="background:linear-gradient(135deg,#FFB066,var(--ac));color:#0A0A0A;font-weight:700;font-size:17px;padding:17px 30px;border-radius:999px;box-shadow:0 12px 40px rgba(255,107,0,.35)">Reservar mi cupo · $80<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a>
+<a class="btn" href="#catalogo" style="color:#FFFFFF;font-weight:500;font-size:17px;padding:16px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.28)">Probar el catálogo</a>
+</div>
+<div class="hIn" style="--d:1100ms;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px;color:#BDBDBD">
+<span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Sin código</span>
+<span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Precios en $ y Bs</span>
+<span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Soporte por WhatsApp</span>
+</div>
+</div>
+
+<div class="hIn" style="--d:400ms;flex:1 1 460px;min-width:0">
+<div style="position:relative;padding:40px 0 48px;transform:translateY(calc(min(var(--sy,0),900) * -.08px)) rotate(calc(min(var(--sy,0),900) * -.006deg)) scale(calc(1 + min(var(--sy,0),900) * .00012))">
+<svg class="rib fl2" aria-hidden="true" viewBox="0 0 700 420" style="left:6%;top:-2%;width:118%;height:auto;z-index:0">
+<defs><path id="rpH" d="M-30 350 C 120 440 300 400 420 270 S 650 40 780 110"/></defs>
+<use href="#rpH" fill="none" stroke="#6E2A00" stroke-width="60" stroke-linecap="round"/>
+<use href="#rpH" fill="none" stroke="url(#gRib)" stroke-width="48" stroke-linecap="round"/>
+<use href="#rpH" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="8" stroke-linecap="round" transform="translate(0,-13)"/>
+<text><textPath href="#rpH" startOffset="4%" dy="5">Planear · Diseñar · Mejorar · Publicar · Mantener</textPath></text>
+</svg>
+<div class="tilt" data-tilt="1" style="position:relative">
+<div class="fl" style="border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 90px rgba(255,107,0,.3)">
+<img src="images/robot-claude-code.png" alt="Claude Code: robot naranja con una laptop" width="735" height="413" style="width:100%;height:auto">
+</div>
+</div>
+<svg class="rib fl2" aria-hidden="true" viewBox="0 0 300 170" style="right:-9%;bottom:6%;width:44%;height:auto;z-index:3;animation-delay:-3s">
+<defs><path id="rpH2" d="M-20 150 C 100 170 220 130 320 30"/></defs>
+<use href="#rpH2" fill="none" stroke="#6E2A00" stroke-width="52" stroke-linecap="round"/>
+<use href="#rpH2" fill="none" stroke="url(#gRib)" stroke-width="42" stroke-linecap="round"/>
+<use href="#rpH2" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="7" stroke-linecap="round" transform="translate(0,-11)"/>
+<text><textPath href="#rpH2" startOffset="8%" dy="5" style="font-size:13px">Optimizar · Publicar</textPath></text>
+</svg>
+<div class="fl" style="position:absolute;left:8px;bottom:0;width:250px;box-sizing:border-box;background:#FFFFFF;color:#0A0A0A;border-radius:22px;padding:18px;box-shadow:0 18px 40px rgba(0,0,0,.45);animation-delay:-2s">
+<div style="font-weight:700;font-size:16px;letter-spacing:.02em;text-transform:uppercase">Pedidos por WhatsApp</div>
+<p style="margin:6px 0 12px;font-size:14px;line-height:1.45;color:#4A4A4A">Tu catálogo arma el pedido y te llega al teléfono.</p>
+<a class="btn" href="#catalogo" style="background:#0A0A0A;color:#FFFFFF;font-size:14px;font-weight:600;padding:12px 20px;border-radius:999px">Ver cómo</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ================= MARQUEE DOBLE ================= -->
+<div aria-hidden="true" style="position:relative;z-index:10;overflow:hidden;padding:10px 0;background:#0A0A0A;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)">
+<div style="transform:skewX(calc(var(--sk,0) * 1deg))">
+<div class="marq" style="padding:12px 0">
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Planear</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Diseñar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Mejorar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Optimizar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Publicar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Mantener</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Planear</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Diseñar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Mejorar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Optimizar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Publicar</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(30px,4.4vw,56px);font-weight:300;letter-spacing:-0.02em;color:#FFFFFF">Mantener</span>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B00" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+</div>
+</div>
+</div>
+<div class="marq rev" style="padding:12px 0">
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Sin código</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Precios en $ y Bs</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Pedidos por WhatsApp</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Tu dominio</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Rutina semanal</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Sin código</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Precios en $ y Bs</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Pedidos por WhatsApp</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Tu dominio</span>
+</div>
+<div style="display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap">
+<span style="font-size:clamp(20px,2.4vw,28px);font-weight:600;color:#FFE2C4;background:#1A130C;border:1px solid #6B3A12;padding:12px 26px;border-radius:999px">Rutina semanal</span>
+</div>
+</div>
+</div>
+
+<!-- ================= FILOSOFÍA ================= -->
+<div style="position:relative;overflow:hidden">
+<div aria-hidden="true" style="position:absolute;left:0;top:40px;white-space:nowrap;font-size:clamp(160px,28vw,420px);font-weight:900;line-height:1;letter-spacing:-0.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.07);transform:translateX(calc(min(var(--sy,0),3200) * -.14px));pointer-events:none">CLAUDE</div>
+<div class="side" aria-hidden="true">
+<svg class="rib" viewBox="0 0 900 300" style="left:-90px;bottom:-34px;width:900px;height:auto;opacity:.95">
+<defs><path id="rpF" d="M-30 70 C 160 280 420 300 620 170 S 880 -10 960 40"/></defs>
+<use href="#rpF" fill="none" stroke="#6E2A00" stroke-width="60" stroke-linecap="round"/>
+<use href="#rpF" fill="none" stroke="url(#gRib)" stroke-width="48" stroke-linecap="round"/>
+<use href="#rpF" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="8" stroke-linecap="round" transform="translate(0,-13)"/>
+<text><textPath href="#rpF" startOffset="5%" dy="5">Planear · Diseñar · Mejorar · Optimizar · Publicar · Mantener</textPath></text>
+</svg>
+<img class="stk fl" src="images/mascota-audifonos.png" alt="" width="424" height="360" style="left:calc(50% - 690px);bottom:290px">
+<div class="glass fl2" style="left:calc(50% - 690px);bottom:160px"><span class="gi">1</span><div><b>Paso a paso</b><small>Partimos de lo básico</small></div></div>
+</div>
+<div style="position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:120px 20px 110px;box-sizing:border-box">
+<div style="display:flex;flex-wrap:wrap;gap:32px 56px">
+<div data-reveal="left" style="flex:0 1 200px;min-width:120px;font-size:18px;color:#C4C4C4"><span style="color:var(--ac)">01/</span> el taller</div>
+<h2 data-fill="1" style="flex:1 1 440px;min-width:0;margin:0;font-size:clamp(30px,4.2vw,54px);line-height:1.15;letter-spacing:-0.025em;font-weight:300;color:transparent;background:linear-gradient(180deg,#FFFFFF calc(var(--f,0) * 1%),#3A3A3A calc(var(--f,0) * 1% + 12%));-webkit-background-clip:text;background-clip:text">No necesitas saber programar. Le explicas a Claude qué vendes y juntos construyen <span style="color:var(--ac);-webkit-text-fill-color:var(--ac)">el catálogo que tus clientes verán en su teléfono.</span></h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:72px;justify-content:flex-end">
+<div data-reveal="flip" style="flex:1 1 300px;max-width:560px;min-width:0;--d:100ms">
+<div class="spot" data-spot="1" style="box-sizing:border-box;height:100%;min-height:270px;border-radius:28px;padding:32px;background:linear-gradient(145deg,#FFB066,var(--ac));color:#0A0A0A;display:flex;flex-direction:column;justify-content:space-between;gap:48px;border:1px solid transparent">
+<span style="font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase">¿Para quién?</span>
+<div style="font-size:32px;line-height:1.12;letter-spacing:-0.02em;font-weight:600">Dueños, gerentes y emprendedores sin conocimientos técnicos.</div>
+</div>
+</div>
+<div data-reveal="flip" style="flex:1 1 300px;max-width:400px;min-width:0;--d:240ms">
+<div class="spot" data-spot="1" style="box-sizing:border-box;height:100%;min-height:270px;border-radius:28px;padding:32px;background:#FFFFFF;color:#0A0A0A;display:flex;flex-direction:column;justify-content:space-between;gap:24px;border:1px solid transparent">
+<div style="display:flex;gap:6px;justify-content:flex-end"><span style="width:44px;height:10px;border-radius:99px;background:#0A0A0A"></span><span style="width:10px;height:10px;border-radius:50%;background:var(--ac)"></span><span style="width:10px;height:10px;border-radius:50%;background:var(--ac)"></span></div>
+<div>
+<div style="font-size:32px;line-height:1.1;letter-spacing:-0.02em;font-weight:500">Con usar Claude de vez en cuando, alcanza.</div>
+<p style="margin:12px 0 0;font-size:15px;line-height:1.5;color:#4A4A4A">Partimos de lo básico y avanzamos paso a paso.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ================= TEMARIO (línea de tiempo) ================= -->
+<div id="temario" style="position:relative;z-index:10;max-width:1000px;margin:0 auto;padding:40px 20px 120px;box-sizing:border-box">
+<div class="side" aria-hidden="true">
+<svg class="rib" viewBox="0 0 300 1100" style="left:calc(50% + 470px);top:60px;width:300px;height:auto">
+<defs><path id="rpT" d="M340 -20 C 130 170 90 310 230 490 S 370 770 130 930 S -30 1070 50 1160"/></defs>
+<use href="#rpT" fill="none" stroke="#6E2A00" stroke-width="58" stroke-linecap="round"/>
+<use href="#rpT" fill="none" stroke="url(#gRib)" stroke-width="46" stroke-linecap="round"/>
+<use href="#rpT" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="8" stroke-linecap="round" transform="translate(-12,0)"/>
+<text><textPath href="#rpT" startOffset="3%" dy="5">Planear · Diseñar · Mejorar · Optimizar · Publicar · Mantener</textPath></text>
+</svg>
+<img class="stk fl" src="images/mascota-laptop.png" alt="" width="424" height="360" style="left:calc(50% - 690px);top:330px">
+<div class="glass fl2" style="left:calc(50% - 690px);top:470px"><span class="gi">6</span><div><b>6 pasos</b><small>De la idea al catálogo publicado</small></div></div>
+<div class="glass fl" style="left:calc(50% + 520px);top:230px"><span class="gi">&lt;/&gt;</span><div><b>Sin código</b><small>Claude lo arma por ti</small></div></div>
+<div class="glass fl2" style="left:calc(50% + 520px);top:370px;animation-delay:-2s"><span class="gi">$</span><div><b>Precios en $ y Bs</b><small>A tasa BCV</small></div></div>
+<div class="glass fl" style="left:calc(50% + 520px);top:510px;animation-delay:-4s"><span class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/></svg></span><div><b>Pedidos por WhatsApp</b><small>Te llegan al teléfono</small></div></div>
+</div>
+<div data-reveal="up" style="margin-bottom:56px">
+<div style="font-size:18px;color:#C4C4C4;margin-bottom:14px"><span style="color:var(--ac)">02/</span> temario</div>
+<h2 style="margin:0;font-size:clamp(36px,5.4vw,68px);line-height:1.02;letter-spacing:-0.035em;font-weight:300">De la idea al catálogo <span style="color:var(--ac);font-weight:700">publicado</span></h2>
+</div>
+<div data-fill="1" style="position:relative">
+<div class="tl-line" aria-hidden="true" style="position:absolute;left:27px;top:30px;bottom:30px;width:2px;background:#232323;border-radius:2px;overflow:hidden"><div style="width:100%;height:calc(var(--f,0) * 1%);background:linear-gradient(#FFB066,var(--ac));box-shadow:0 0 16px var(--ac)"></div></div>
+
+<div class="tl" data-reveal="up" style="display:flex;gap:22px;align-items:flex-start;padding:12px 0">
+<div class="dot" style="flex:none;position:relative;width:56px;height:56px;border-radius:50%;background:#111111;border:2px solid #2A2A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;box-sizing:border-box">01</div>
+<div class="spot" data-spot="1" style="flex:1;min-width:0;box-sizing:border-box;padding:26px 28px;border-radius:22px;background:#111111;border:1px solid #262626"><h3 style="margin:0 0 8px;font-size:24px;font-weight:600">Planear tu catálogo</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#BDBDBD">Qué productos mostrar, qué fotos usar, cómo poner los precios y cómo te contactan.</p></div>
+</div>
+<div class="tl" data-reveal="up" style="display:flex;gap:22px;align-items:flex-start;padding:12px 0">
+<div class="dot" style="flex:none;position:relative;width:56px;height:56px;border-radius:50%;background:#111111;border:2px solid #2A2A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;box-sizing:border-box">02</div>
+<div class="spot" data-spot="1" style="flex:1;min-width:0;box-sizing:border-box;padding:26px 28px;border-radius:22px;background:#111111;border:1px solid #262626"><h3 style="margin:0 0 8px;font-size:24px;font-weight:600">Diseñarlo con Claude</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#BDBDBD">Le pides a Claude que lo arme y lo acomode, sin tocar código.</p></div>
+</div>
+<div class="tl" data-reveal="up" style="display:flex;gap:22px;align-items:flex-start;padding:12px 0">
+<div class="dot" style="flex:none;position:relative;width:56px;height:56px;border-radius:50%;background:#111111;border:2px solid #2A2A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;box-sizing:border-box">03</div>
+<div class="spot" data-spot="1" style="flex:1;min-width:0;box-sizing:border-box;padding:26px 28px;border-radius:22px;background:#111111;border:1px solid #262626"><h3 style="margin:0 0 8px;font-size:24px;font-weight:600">Modificarlo y mejorarlo</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#BDBDBD">Cambiar precios, productos, colores y logo, y agregar el botón de WhatsApp.</p></div>
+</div>
+<div class="tl" data-reveal="up" style="display:flex;gap:22px;align-items:flex-start;padding:12px 0">
+<div class="dot" style="flex:none;position:relative;width:56px;height:56px;border-radius:50%;background:#111111;border:2px solid #2A2A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;box-sizing:border-box">04</div>
+<div class="spot" data-spot="1" style="flex:1;min-width:0;box-sizing:border-box;padding:26px 28px;border-radius:22px;background:#111111;border:1px solid #262626"><h3 style="margin:0 0 8px;font-size:24px;font-weight:600">Imágenes livianas</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#BDBDBD">Optimizar las fotos para que el catálogo cargue rápido en el teléfono.</p></div>
+</div>
+<div class="tl" data-reveal="up" style="display:flex;gap:22px;align-items:flex-start;padding:12px 0">
+<div class="dot" style="flex:none;position:relative;width:56px;height:56px;border-radius:50%;background:#111111;border:2px solid #2A2A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;box-sizing:border-box">05</div>
+<div class="spot" data-spot="1" style="flex:1;min-width:0;box-sizing:border-box;padding:26px 28px;border-radius:22px;background:#111111;border:1px solid #262626"><h3 style="margin:0 0 8px;font-size:24px;font-weight:600">Publicarlo y tener tu dominio</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#BDBDBD">Ponerlo en internet y comprar tu propio dominio.</p></div>
+</div>
+<div class="tl" data-reveal="up" style="display:flex;gap:22px;align-items:flex-start;padding:12px 0">
+<div class="dot" style="flex:none;position:relative;width:56px;height:56px;border-radius:50%;background:#111111;border:2px solid #2A2A2A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;box-sizing:border-box">06</div>
+<div class="spot" data-spot="1" style="flex:1;min-width:0;box-sizing:border-box;padding:26px 28px;border-radius:22px;background:#111111;border:1px solid #262626"><h3 style="margin:0 0 8px;font-size:24px;font-weight:600">Mantenerlo al día</h3><p style="margin:0;font-size:16px;line-height:1.55;color:#BDBDBD">Actualizar la tasa, el inventario y seguir una rutina semanal sencilla.</p></div>
+</div>
+</div>
+</div>
+
+<!-- ================= CATÁLOGO INTERACTIVO ================= -->
+<div id="catalogo" style="position:relative;overflow:hidden;background:#0B0B0B;border-top:1px solid #1E1E1E;border-bottom:1px solid #1E1E1E">
+<div class="blob" aria-hidden="true" style="position:absolute;left:40%;top:8%;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.3),rgba(255,107,0,0) 68%);filter:blur(40px)"></div>
+<div style="position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:110px 20px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:56px 56px;align-items:center">
+<div data-reveal="left" style="flex:1 1 380px;min-width:0">
+<div style="font-size:18px;color:#C4C4C4;margin-bottom:14px"><span style="color:var(--ac)">03/</span> el caso del taller</div>
+<h2 style="margin:0 0 20px;font-size:clamp(36px,5.2vw,64px);line-height:1.02;letter-spacing:-0.035em;font-weight:300">Pruébalo: <span style="color:var(--ac);font-weight:700">Abasto El Samán</span></h2>
+<p style="margin:0 0 28px;font-size:19px;line-height:1.6;color:#C4C4C4;max-width:480px">Este es el tipo de catálogo que construyes en el taller. Agrega productos y mira cómo se arma el pedido para WhatsApp.</p>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#1A1A1A;border:1px solid #2A2A2A;display:flex;align-items:center;justify-content:center;color:#FF8A2B;font-weight:800">$</span><span style="font-size:17px">Precios en dólares y en bolívares a tasa BCV</span></div>
+<div style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#1A1A1A;border:1px solid #2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="18" cy="20" r="1.5"></circle><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.5L22 7H6"></path></svg></span><span style="font-size:17px">Carrito con total automático</span></div>
+<div style="display:flex;gap:14px;align-items:center"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#1A1A1A;border:1px solid #2A2A2A;display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"></path></svg></span><span style="font-size:17px">Pedido listo para enviar por WhatsApp</span></div>
+</div>
+<p style="margin:22px 0 0;font-size:14px;color:#8E8E8E">Negocio y precios de ejemplo.</p>
+</div>
+
+<div data-reveal="right" style="flex:1 1 340px;min-width:0;display:flex;justify-content:center">
+<div class="phone" style="width:100%;max-width:370px;box-sizing:border-box;border-radius:44px;border:8px solid #262626;background:#050505;box-shadow:0 40px 100px rgba(255,107,0,.22),inset 0 0 0 1px #333;overflow:hidden">
+<div style="padding:18px 16px 12px;border-bottom:1px solid #1C1C1C;display:flex;justify-content:space-between;align-items:center;gap:10px">
+<div><div style="font-weight:800;font-size:16px;letter-spacing:.03em;text-transform:uppercase">Abasto El Samán</div><div id="rateLabel" style="font-size:12px;color:#8E8E8E;margin-top:2px">Precios en $ y Bs</div></div>
+<div id="cartIcon" style="position:relative;width:44px;height:44px;border-radius:50%;background:#161616;border:1px solid #2A2A2A;display:flex;align-items:center;justify-content:center" role="img" aria-label="Productos en el pedido: 0">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="18" cy="20" r="1.5"></circle><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.5L22 7H6"></path></svg>
+<span id="cartBadge" class="pcard hid" style="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;box-sizing:border-box;border-radius:99px;background:var(--ac);color:#0A0A0A;font-size:12px;font-weight:800;align-items:center;justify-content:center">0</span>
+</div>
+</div>
+<div id="shopView">
+<div style="height:540px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain">
+<div id="chips" style="display:flex;gap:8px;padding:14px 16px;overflow-x:auto"></div>
+<div id="products" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 16px 110px"></div>
+</div>
+<div id="cartBar" class="pcard hid" style="margin:-96px 12px 12px;position:relative;z-index:2;background:#FFFFFF;color:#0A0A0A;border-radius:22px;padding:12px 12px 12px 16px;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 -10px 40px rgba(0,0,0,.6)">
+<div><div id="cbCount" style="font-size:12px;color:#4A4A4A;font-weight:600"></div><div id="cbUsd" style="font-size:18px;font-weight:800"></div><div id="cbBs" style="font-size:12px;color:#4A4A4A"></div></div>
+<button type="button" id="sendOrder" class="btn" style="min-height:48px;padding:0 18px;border-radius:999px;border:0;background:#0A0A0A;color:#FFFFFF;font:inherit;font-size:14px;font-weight:700;cursor:pointer">Pedir por WhatsApp</button>
+</div>
+</div>
+<div id="sentView" class="hid" style="height:540px;box-sizing:border-box;padding:18px 16px;background:#0E1512;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9FB5AA;text-align:center">Así le llega el pedido al negocio</div>
+<div class="pcard" style="align-self:flex-end;max-width:88%;background:#1F4A36;color:#FFFFFF;border-radius:16px 16px 4px 16px;padding:12px 14px;font-size:14px;line-height:1.5">
+<div style="font-weight:700;margin-bottom:6px">Hola, quiero pedir:</div>
+<div id="sentLines"></div>
+<div id="sentUsd" style="margin-top:8px;font-weight:700"></div>
+<div id="sentBs" style="font-size:12px;color:#CFE3D8"></div>
+</div>
+<div style="flex:1"></div>
+<button type="button" id="resetOrder" class="btn" style="min-height:48px;border-radius:999px;border:0;background:linear-gradient(135deg,#FFB066,var(--ac));color:#0A0A0A;font:inherit;font-size:15px;font-weight:700;cursor:pointer">Hacer otro pedido</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ================= DETALLES ================= -->
+<div id="detalles" style="position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:120px 20px 40px;box-sizing:border-box">
+<div data-reveal="up" style="margin-bottom:48px">
+<div style="font-size:18px;color:#C4C4C4;margin-bottom:14px"><span style="color:var(--ac)">04/</span> detalles</div>
+<h2 style="margin:0;font-size:clamp(36px,5.4vw,68px);line-height:1.02;letter-spacing:-0.035em;font-weight:300">Todo lo que <span style="color:var(--ac);font-weight:700">incluye</span></h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<div data-reveal="flip" style="flex:1 1 340px;min-width:0;--d:0ms"><div class="spot" data-spot="1" style="box-sizing:border-box;height:100%;min-height:250px;padding:32px;border-radius:28px;background:linear-gradient(145deg,#FFB066,var(--ac));color:#0A0A0A;border:1px solid transparent;display:flex;flex-direction:column;justify-content:space-between;gap:20px"><span style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Inversión</span><div><div style="font-size:clamp(72px,9vw,110px);font-weight:800;line-height:.9;letter-spacing:-0.05em">$80</div><div style="font-size:17px;font-weight:600;margin-top:8px">Pago por adelantado</div></div></div></div>
+<div style="flex:2 1 520px;min-width:0;display:flex;flex-wrap:wrap;gap:16px">
+<div data-reveal="up" style="flex:1 1 240px;min-width:0;--d:80ms"><div class="spot" data-spot="1" style="box-sizing:border-box;height:100%;min-height:117px;padding:24px;border-radius:22px;background:#FFFFFF;color:#0A0A0A;border:1px solid transparent;display:flex;flex-direction:column;justify-content:space-between;gap:14px"><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4A4A4A">Lugar</span><span style="font-size:20px;font-weight:600;line-height:1.25">Worklab, Av. Libertador, conjunto Parque Jardín</span></div></div>
+<div data-reveal="up" style="flex:1 1 240px;min-width:0;--d:160ms"><div class="spot" data-spot="1" style="box-sizing:border-box;height:100%;min-height:117px;padding:24px;border-radius:22px;background:#FFFFFF;color:#0A0A0A;border:1px solid transparent;display:flex;flex-direction:column;justify-content:space-between;gap:14px"><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4A4A4A">Instructor</span><span style="font-size:20px;font-weight:600;line-height:1.25">Alejandro Sánchez</span></div></div>
+<div data-reveal="up" style="flex:1 1 240px;min-width:0;--d:240ms"><div class="spot" data-spot="1" style="box-sizing:border-box;height:100%;min-height:117px;padding:24px;border-radius:22px;background:#111111;color:#FFFFFF;border:1px solid #262626;display:flex;flex-direction:column;justify-content:space-between;gap:14px"><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#BDBDBD">Material</span><span style="font-size:20px;font-weight:600;line-height:1.25">Guía del taller y pensum de una hoja carta</span></div></div>
+<div data-reveal="up" style="flex:1 1 240px;min-width:0;--d:320ms"><div class="spot" data-spot="1" style="box-sizing:border-box;height:100%;min-height:117px;padding:24px;border-radius:22px;background:#111111;color:#FFFFFF;border:1px solid #262626;display:flex;flex-direction:column;justify-content:space-between;gap:14px"><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#BDBDBD">Soporte</span><span style="font-size:20px;font-weight:600;line-height:1.25">Grupo de WhatsApp permanente</span></div></div>
+</div>
+</div>
+</div>
+
+<!-- ================= PREGUNTAS ================= -->
+<div id="preguntas" style="position:relative;z-index:10;max-width:1000px;margin:0 auto;padding:100px 20px 60px;box-sizing:border-box">
+<div class="side" aria-hidden="true">
+<svg class="rib" viewBox="0 0 300 760" style="left:calc(50% + 470px);top:110px;width:300px;height:auto">
+<defs><path id="rpP" d="M340 -20 C 110 130 70 280 210 410 S 330 600 70 780"/></defs>
+<use href="#rpP" fill="none" stroke="#6E2A00" stroke-width="58" stroke-linecap="round"/>
+<use href="#rpP" fill="none" stroke="url(#gRib)" stroke-width="46" stroke-linecap="round"/>
+<use href="#rpP" fill="none" stroke="rgba(255,238,215,.6)" stroke-width="8" stroke-linecap="round" transform="translate(-12,0)"/>
+<text><textPath href="#rpP" startOffset="4%" dy="5">Publicar · Mantener · Publicar</textPath></text>
+</svg>
+<img class="stk fl" src="images/mascota-cohete.png" alt="" width="424" height="360" style="left:calc(50% - 690px);top:230px">
+<div class="glass fl2" style="left:calc(50% - 690px);top:370px"><span class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/></svg></span><div><b>Soporte</b><small>Grupo de WhatsApp permanente</small></div></div>
+<div class="glass fl" style="left:calc(50% + 520px);top:200px;animation-delay:-3s"><span class="gi">★</span><div><b>Taller presencial</b><small>Worklab, Av. Libertador</small></div></div>
+</div>
+<div data-reveal="up" style="margin-bottom:28px">
+<div style="font-size:18px;color:#C4C4C4;margin-bottom:14px"><span style="color:var(--ac)">05/</span> preguntas</div>
+<h2 style="margin:0;font-size:clamp(36px,5.4vw,68px);line-height:1.02;letter-spacing:-0.035em;font-weight:300">Lo que te estás <span style="color:var(--ac);font-weight:700">preguntando</span></h2>
+</div>
+<div data-reveal="up" style="border-top:1px solid #222">
+<div id="faqList"></div>
+</div>
+</div>
+
+<!-- ================= CTA ================= -->
+<div id="inscripcion" style="position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:60px 20px 100px;box-sizing:border-box">
+<div data-reveal="scale">
+<div style="position:relative;overflow:hidden;box-sizing:border-box;padding:80px 28px;border-radius:36px;background:linear-gradient(135deg,#FFB066,var(--ac));color:#0A0A0A;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+<svg class="spin" aria-hidden="true" width="440" height="440" viewBox="0 0 100 100" style="position:absolute;right:-130px;top:-130px;opacity:.16"><path d="M50 2l7 31 31-7-22 24 22 24-31-7-7 31-7-31-31 7 22-24-22-24 31 7z" fill="#0A0A0A"></path></svg>
+<svg class="spin" aria-hidden="true" width="260" height="260" viewBox="0 0 100 100" style="position:absolute;left:-90px;bottom:-90px;opacity:.12;animation-direction:reverse"><path d="M50 2l7 31 31-7-22 24 22 24-31-7-7 31-7-31-31 7 22-24-22-24 31 7z" fill="#0A0A0A"></path></svg>
+<h2 style="position:relative;margin:0;font-size:clamp(38px,6.4vw,84px);line-height:.98;letter-spacing:-0.04em;font-weight:700;max-width:820px">¿Listo para llevar tu negocio al siguiente nivel?</h2>
+<p style="position:relative;margin:0;font-size:20px;line-height:1.5;max-width:480px">Inscripción por WhatsApp. Taller: $80, prepagado.</p>
+<a class="btn mag pulse" href="#" data-wa="1" style="position:relative;background:#0A0A0A;color:#FFFFFF;font-weight:700;font-size:18px;padding:19px 36px;border-radius:999px">Escribir por WhatsApp<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></a></div>
+</div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<div style="position:relative;z-index:10;border-top:1px solid #1E1E1E">
+<div style="max-width:1200px;margin:0 auto;padding:28px 20px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14px;color:#BDBDBD">
+<span data-avoid="1">© Inteligencia<span style="color:var(--ac)">.VE</span></span>
+<span data-avoid="1">Worklab · Av. Libertador, conjunto Parque Jardín</span>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+/* ===== CONFIGURACIÓN: cambia estos datos ===== */
+var CONFIG = {
+  whatsapp: '584245446066',   // número con código de país, sin + ni espacios. Solo se usa en los enlaces; no se muestra en pantalla
+  tasaBCV: 0,                 // tasa BCV del día en Bs por dólar (ej. 40.5). Con 0 no se muestran los Bs
+  mensaje: 'Hola, quiero inscribirme en el taller de catálogo digital.'
+};
+/* ============================================= */
+
+class Page {
+  constructor() { this.state = { cat: 'Todo', cart: {}, sent: false, faqOpen: 0 }; }
+  skipIntro() {
+    const r = this._root;
+    if (r && !r.classList.contains('skip')) {
+      r.classList.add('skip');
+      clearTimeout(this._tDone);
+      this._tDone = setTimeout(() => this.introDone(), 600);
+    }
+  }
+
+  introDone() {
+    const r = this._root;
+    if (!r) return;
+    r.classList.add('done');
+    if (this._m) { this._m.ready = true; this._m.tryShow(); }
+  }
+
+  init() {
+    const root = document.querySelector('[data-lp]');
+    const fx = root && root.querySelector('[data-fx]');
+    if (!root || !fx) return;
+    this._root = root;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    root.classList.add('js');
+    this._tDone = setTimeout(() => this.introDone(), reduce ? 0 : 4050);
+
+    // ---- Aparición al hacer scroll ----
+    const items = Array.prototype.slice.call(root.querySelectorAll('[data-reveal]'));
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach((el) => el.classList.add('in'));
+    } else {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) { en.target.classList.add('in'); this._io.unobserve(en.target); }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+      items.forEach((el) => this._io.observe(el));
+    }
+
+    // ---- Scroll: progreso, parallax, relleno de texto, inclinación por velocidad ----
+    const fills = Array.prototype.slice.call(root.querySelectorAll('[data-fill]'));
+    let lastY = 0, ticking = false;
+    this._skew = 0;
+    this._lastAct = performance.now();
+    this._onScroll = (e) => {
+      this._lastAct = performance.now();
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        let el = document.scrollingElement || document.documentElement;
+        const t = e && e.target;
+        if (t && t.nodeType === 1 && t !== document.body && t.scrollHeight > t.clientHeight + 400) el = t;
+        const y = el.scrollTop;
+        const max = Math.max(1, el.scrollHeight - el.clientHeight);
+        fx.style.setProperty('--sy', String(y));
+        fx.style.setProperty('--p', String(Math.min(1, y / max)));
+        this._skew = Math.max(-10, Math.min(10, this._skew + (y - lastY) * 0.12));
+        lastY = y;
+        const vh = window.innerHeight || 800;
+        fills.forEach((f) => {
+          const r = f.getBoundingClientRect();
+          const v = Math.max(0, Math.min(1, (vh * 0.78 - r.top) / Math.max(1, r.height * 0.95)));
+          f.style.setProperty('--f', (v * 100).toFixed(1));
+        });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, true);
+    this._onScroll();
+
+    if (reduce) {
+      const m = root.querySelector('[data-mascot]');
+      if (m) m.style.transform = 'translate3d(' + (window.innerWidth - 140) + 'px,' + (window.innerHeight - 110) + 'px,0)';
+      return;
+    }
+
+    // ---- Puntero y toque ----
+    this._ptr = { x: -9999, y: -9999, t: 0, mouse: false, inside: false };
+    let tilted = null;
+    const resetTilt = (el) => { if (el) { el.style.setProperty('--rx', '0'); el.style.setProperty('--ry', '0'); } };
+    let magged = null;
+    const resetMag = (el) => { if (el) { el.style.setProperty('--tx', '0'); el.style.setProperty('--ty', '0'); } };
+    this._onMove = (e) => {
+      const now = performance.now();
+      this._lastAct = now;
+      const P = this._ptr;
+      P.x = e.clientX; P.y = e.clientY; P.t = now;
+      P.mouse = e.pointerType === 'mouse'; P.inside = true;
+      fx.style.setProperty('--cx', String(e.clientX));
+      fx.style.setProperty('--cy', String(e.clientY));
+      const tg = e.target && e.target.closest ? e.target : null;
+      if (!tg) return;
+      const sp = tg.closest('[data-spot]');
+      if (sp) {
+        const r = sp.getBoundingClientRect();
+        sp.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        sp.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      }
+      const ti = tg.closest('[data-tilt]');
+      if (tilted && tilted !== ti) resetTilt(tilted);
+      if (ti) {
+        const r = ti.getBoundingClientRect();
+        ti.style.setProperty('--rx', String(((e.clientX - r.left) / r.width - 0.5) * 2));
+        ti.style.setProperty('--ry', String(((e.clientY - r.top) / r.height - 0.5) * 2));
+      }
+      tilted = ti;
+      const mg = P.mouse ? tg.closest('.mag') : null;
+      if (magged && magged !== mg) resetMag(magged);
+      if (mg) {
+        const r = mg.getBoundingClientRect();
+        mg.style.setProperty('--tx', String((e.clientX - (r.left + r.width / 2)) * 0.28));
+        mg.style.setProperty('--ty', String((e.clientY - (r.top + r.height / 2)) * 0.35));
+      }
+      magged = mg;
+    };
+    this._onLeave = (e) => {
+      resetTilt(tilted); tilted = null;
+      resetMag(magged); magged = null;
+      if (!e || e.type === 'pointerleave') {
+        this._ptr.inside = false;
+        fx.style.setProperty('--cx', '-900');
+        fx.style.setProperty('--cy', '-900');
+      }
+    };
+    this._onDown = (e) => {
+      this._onMove(e);
+      const b = e.target && e.target.closest ? e.target.closest('.btn') : null;
+      if (b) {
+        const r = b.getBoundingClientRect();
+        b.style.setProperty('--px', (e.clientX - r.left) + 'px');
+        b.style.setProperty('--py', (e.clientY - r.top) + 'px');
+        b.classList.remove('rip'); void b.offsetWidth; b.classList.add('rip');
+      }
+    };
+    this._noop = function () {};
+    root.addEventListener('pointermove', this._onMove, { passive: true });
+    root.addEventListener('pointerdown', this._onDown, { passive: true });
+    root.addEventListener('pointerup', this._onLeave, { passive: true });
+    root.addEventListener('pointercancel', this._onLeave, { passive: true });
+    root.addEventListener('pointerleave', this._onLeave, { passive: true });
+    root.addEventListener('touchstart', this._noop, { passive: true });
+
+    this.startMascot(root);
+  }
+
+  startMascot(root) {
+    const m = root.querySelector('[data-mascot]');
+    if (!m) return;
+    const bubble = m.querySelector('[data-say-text]');
+    const SHOW_MS = 3500;
+    // una aparición por sección, cada una solo una vez
+    const STEPS = [
+      { sel: '#temario', mood: 'idle', say: 'Aquí ves los 6 pasos: de la idea al catálogo publicado.' },
+      { sel: '#catalogo', mood: 'cook', say: 'Pruébalo: agrega productos y mira cómo llega el pedido.' },
+      { sel: '#detalles', mood: 'pay', say: 'Esto es todo lo que incluye. Cuando quieras, aparta tu cupo.' }
+    ];
+    const S = this._m = { ready: root.classList.contains('done'), busy: false, tryShow: null };
+    const seen = STEPS.map(() => false);
+    const shown = STEPS.map(() => false);
+
+    S.tryShow = () => {
+      if (!S.ready || S.busy) return;
+      const i = STEPS.findIndex((st, k) => seen[k] && !shown[k]);
+      if (i < 0) return;
+      shown[i] = true;
+      S.busy = true;
+      m.setAttribute('data-mood', STEPS[i].mood);
+      bubble.textContent = STEPS[i].say;
+      m.classList.add('on');
+      setTimeout(() => {
+        m.classList.remove('on');
+        setTimeout(() => { S.busy = false; S.tryShow(); }, 500);
+      }, SHOW_MS);
+    };
+
+    // la sección cuenta como "a la vista" cuando cruza el centro de la pantalla
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        const k = STEPS.findIndex((st) => root.querySelector(st.sel) === en.target);
+        if (k >= 0) seen[k] = en.isIntersecting;
+      });
+      S.tryShow();
+    }, { rootMargin: '-40% 0px -40% 0px' });
+    STEPS.forEach((st) => { const el = root.querySelector(st.sel); if (el) io.observe(el); });
+  }
+
+
+  /* ----- catálogo de ejemplo ----- */
+  render() {
+    const st = this.state, cart = st.cart, cat = st.cat;
+    const rate = Number(CONFIG.tasaBCV) || 0;
+    const $ = (id) => document.getElementById(id);
+    const usd = (n) => '$' + n.toFixed(2);
+    const bs = (n) => 'Bs ' + n.toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const tiles = [
+      'background:linear-gradient(135deg,#FFB066,#FF6B00);color:#0A0A0A',
+      'background:#F2F2F2;color:#0A0A0A',
+      'background:#2A2A2A;color:#FFB066',
+      'background:#3A1A05;color:#FFB066'
+    ];
+    const all = [
+      { id: 'h', name: 'Harina de maíz', size: '1 kg', usd: 1.2, cat: 'Víveres', ini: 'HM' },
+      { id: 'a', name: 'Arroz', size: '1 kg', usd: 1.4, cat: 'Víveres', ini: 'AR' },
+      { id: 'c', name: 'Café molido', size: '500 g', usd: 5.5, cat: 'Bebidas', ini: 'CA' },
+      { id: 'o', name: 'Aceite vegetal', size: '1 L', usd: 3.2, cat: 'Víveres', ini: 'AC' },
+      { id: 'j', name: 'Jugo de naranja', size: '1 L', usd: 2.3, cat: 'Bebidas', ini: 'JN' },
+      { id: 'd', name: 'Detergente', size: '1 kg', usd: 3.9, cat: 'Limpieza', ini: 'DT' }
+    ];
+    let count = 0, total = 0;
+    const lines = [];
+    all.forEach((p) => {
+      const q = cart[p.id] || 0;
+      if (q) { count += q; total += q * p.usd; lines.push(q + ' × ' + p.name + ' ' + p.size + ' — ' + usd(q * p.usd)); }
+    });
+    $('rateLabel').textContent = rate > 0 ? 'Tasa BCV: ' + rate.toLocaleString('es-VE') + ' Bs/$' : 'Precios en $ y Bs';
+    $('cartIcon').setAttribute('aria-label', 'Productos en el pedido: ' + count);
+    const badge = $('cartBadge');
+    badge.textContent = count;
+    badge.classList.toggle('hid', !(count > 0));
+    badge.style.display = count > 0 ? 'flex' : '';
+    $('shopView').classList.toggle('hid', st.sent);
+    $('sentView').classList.toggle('hid', !st.sent);
+    const bar = $('cartBar');
+    bar.classList.toggle('hid', !(count > 0));
+    $('cbCount').textContent = count === 1 ? '1 producto' : count + ' productos';
+    $('cbUsd').textContent = usd(total);
+    $('cbBs').textContent = rate > 0 ? bs(total * rate) : 'Bs a tasa BCV del día';
+    $('sentLines').innerHTML = lines.map((l) => '<div>' + l + '</div>').join('');
+    $('sentUsd').textContent = 'Total: ' + usd(total);
+    $('sentBs').textContent = rate > 0 ? bs(total * rate) : 'Bs a tasa BCV del día';
+
+    $('chips').innerHTML = ['Todo', 'Víveres', 'Bebidas', 'Limpieza'].map((label) => {
+      const on = label === cat;
+      return '<button type="button" data-cat="' + label + '" aria-pressed="' + on + '" style="flex:none;min-height:36px;padding:8px 14px;border-radius:999px;border:1px solid #2A2A2A;font:inherit;font-size:14px;font-weight:600;cursor:pointer;' +
+        (on ? 'background:#FF6B00;color:#0A0A0A;border-color:#FF6B00' : 'background:#141414;color:#D6D6D6') + '">' + label + '</button>';
+    }).join('');
+    $('products').innerHTML = all.filter((p) => cat === 'Todo' || p.cat === cat).map((p) => {
+      const q = cart[p.id] || 0;
+      const ctl = q > 0
+        ? '<div style="display:flex;align-items:center;justify-content:space-between;background:#1E1E1E;border-radius:999px;padding:3px">' +
+          '<button type="button" data-sub="' + p.id + '" aria-label="Quitar uno de ' + p.name + '" style="width:36px;height:36px;border-radius:50%;border:0;background:#2A2A2A;color:#FFFFFF;font:inherit;font-size:20px;cursor:pointer">−</button>' +
+          '<span style="font-weight:800">' + q + '</span>' +
+          '<button type="button" data-add="' + p.id + '" aria-label="Agregar uno de ' + p.name + '" style="width:36px;height:36px;border-radius:50%;border:0;background:#FF6B00;color:#0A0A0A;font:inherit;font-size:20px;font-weight:700;cursor:pointer">+</button></div>'
+        : '<button type="button" class="btn" data-add="' + p.id + '" style="min-height:42px;border-radius:999px;border:0;background:#FFFFFF;color:#0A0A0A;font:inherit;font-size:15px;font-weight:700;cursor:pointer">Agregar</button>';
+      return '<div class="pcard" style="background:#121212;border:1px solid #222;border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:6px">' +
+        '<div style="height:78px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;letter-spacing:-0.02em;' + tiles[all.indexOf(p) % tiles.length] + '">' + p.ini + '</div>' +
+        '<div style="font-size:14px;font-weight:600;line-height:1.2">' + p.name + '</div>' +
+        '<div style="font-size:13px;color:#A0A0A0">' + p.size + '</div>' +
+        '<div style="font-size:16px;font-weight:800;color:#FFFFFF">' + usd(p.usd) + '</div>' +
+        '<div style="font-size:13px;color:#BDBDBD">' + (rate > 0 ? bs(p.usd * rate) : 'Bs a tasa BCV') + '</div>' + ctl + '</div>';
+    }).join('');
+
+    const faqData = [
+      ['¿Necesito saber programar?', 'No. El taller está pensado para dueños, gerentes y emprendedores sin conocimientos técnicos.'],
+      ['¿Necesito experiencia con Claude?', 'Basta con haberlo usado alguna vez de forma casual.'],
+      ['¿Cuánto cuesta y cómo pago?', 'Cuesta $80 y se paga por adelantado. La inscripción es por WhatsApp.'],
+      ['¿Dónde es el taller?', 'En Worklab, Av. Libertador, conjunto Parque Jardín.'],
+      ['¿Qué material recibo?', 'La guía del taller y el pensum en una hoja tamaño carta.'],
+      ['¿Y si tengo dudas después?', 'Quedas en un grupo de WhatsApp de soporte permanente.']
+    ];
+    $('faqList').innerHTML = faqData.map((f, i) => {
+      const open = st.faqOpen === i;
+      return '<div style="border-bottom:1px solid #222">' +
+        '<button type="button" data-faq="' + i + '" aria-expanded="' + open + '" style="width:100%;min-height:44px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:0;color:#FFFFFF;font:inherit;font-size:clamp(18px,2.2vw,22px);font-weight:500;padding:24px 0;text-align:left;cursor:pointer"><span>' + f[0] + '</span>' +
+        '<span aria-hidden="true" style="flex:none;width:40px;height:40px;border-radius:50%;border:1px solid #333;display:flex;align-items:center;justify-content:center;color:#FF8A2B;font-size:24px;transition:transform .35s cubic-bezier(.3,1.4,.5,1),background .3s;' +
+        (open ? 'transform:rotate(45deg);background:#FF6B00;color:#0A0A0A;border-color:#FF6B00' : 'transform:rotate(0deg)') + '">+</span></button>' +
+        (open ? '<p class="faqA" style="margin:0 0 24px;padding-right:56px;color:#BDBDBD;font-size:17px;line-height:1.6">' + f[1] + '</p>' : '') + '</div>';
+    }).join('');
+  }
+
+  setup() {
+    const root = document.querySelector('[data-lp]');
+    const wa = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(CONFIG.mensaje);
+    root.querySelectorAll('a[data-wa]').forEach((a) => { a.href = wa; a.target = '_blank'; a.rel = 'noopener'; });
+    root.addEventListener('click', (e) => {
+      const t = e.target.closest ? e.target.closest('button') : null;
+      if (!t) return;
+      const st = this.state;
+      if (t.dataset.cat) { st.cat = t.dataset.cat; this.render(); }
+      else if (t.dataset.add) { st.cart[t.dataset.add] = (st.cart[t.dataset.add] || 0) + 1; this.render(); }
+      else if (t.dataset.sub) { const id = t.dataset.sub; st.cart[id] = Math.max(0, (st.cart[id] || 0) - 1); if (!st.cart[id]) delete st.cart[id]; this.render(); }
+      else if (t.dataset.faq !== undefined) { const i = Number(t.dataset.faq); st.faqOpen = st.faqOpen === i ? -1 : i; this.render(); }
+      else if (t.id === 'sendOrder') { st.sent = true; this.render(); }
+      else if (t.id === 'resetOrder') { st.sent = false; st.cart = {}; this.render(); }
+      else if (t.id === 'skipIntro') { this.skipIntro(); }
+    });
+    this.render();
+    this.init();
+  }
+}
+document.addEventListener('DOMContentLoaded', function () { new Page().setup(); });
+
+</script>
+</body>
+</html>
