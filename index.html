@@ -85,7 +85,7 @@ img{display:block}
 .w{display:inline-block;opacity:0;animation:wIn 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,3.75s) + var(--d,0ms))}
 .hIn{opacity:0;animation:wIn 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,3.75s) + var(--d,0ms))}
 .skip{--i:.3s}
-.js [data-reveal]{opacity:0;transform:translate3d(0,48px,0);transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms),filter 1s ease var(--d,0ms);filter:blur(6px)}
+.js [data-reveal]{opacity:0;transform:translate3d(0,48px,0);transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
 .js [data-reveal="left"]{transform:translate3d(-64px,0,0)}
 .js [data-reveal="right"]{transform:translate3d(64px,0,0)}
 .js [data-reveal="scale"]{transform:scale(.88)}
@@ -123,15 +123,15 @@ img{display:block}
 .m-say{position:absolute;right:6px;bottom:100%;margin-bottom:10px;width:max-content;max-width:min(250px,calc(100vw - 48px));box-sizing:border-box;background:#FFFFFF;color:#0A0A0A;font-weight:600;font-size:15px;line-height:1.35;padding:11px 15px;border-radius:16px 16px 4px 16px;box-shadow:0 10px 28px rgba(0,0,0,.45)}
 
 /* ---------- CINTAS 3D Y TARJETAS DE VIDRIO ---------- */
-.rib{position:absolute;pointer-events:none;overflow:visible;filter:drop-shadow(0 18px 28px rgba(255,107,0,.32))}
+.rib{position:absolute;pointer-events:none;overflow:visible}
 .rib text{font-family:'Outfit',system-ui,sans-serif;font-weight:700;font-size:15px;letter-spacing:.32em;text-transform:uppercase;fill:#1A0A00}
 .side{position:absolute;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;overflow:hidden;pointer-events:none;z-index:0;display:none}
 @media (min-width:1400px){.side{display:block}}
-.glass{position:absolute;box-sizing:border-box;width:172px;display:flex;gap:11px;align-items:center;padding:13px 14px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.22)}
+.glass{position:absolute;box-sizing:border-box;width:172px;display:flex;gap:11px;align-items:center;padding:13px 14px;border-radius:20px;background:linear-gradient(135deg,rgba(40,40,44,.92),rgba(18,18,20,.92));border:1px solid rgba(255,255,255,.18);box-shadow:0 10px 24px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.22)}
 .glass b{display:block;font-size:14px;font-weight:600;line-height:1.2;color:#FFFFFF}
 .glass small{display:block;margin-top:3px;font-size:12px;line-height:1.35;color:#C9C9C9}
 .gi{flex:none;width:34px;height:34px;border-radius:11px;background:linear-gradient(145deg,#FFB066,#FF6B00);display:flex;align-items:center;justify-content:center;color:#0A0A0A;font-weight:800;font-size:16px;box-shadow:0 6px 16px rgba(255,107,0,.4)}
-.stk{position:absolute;width:150px;height:auto;filter:drop-shadow(0 14px 18px rgba(0,0,0,.55))}
+.stk{position:absolute;width:150px;height:auto}
 
 /* ---------- TELÉFONO (80% de las visitas) ---------- */
 @media (max-width:640px){
@@ -213,7 +213,6 @@ html{scroll-behavior:auto}
 </div>
 
 <!-- textura de cine, progreso y luz -->
-<svg class="grain" aria-hidden="true" style="position:fixed;left:-50%;top:-50%;width:200%;height:200%;pointer-events:none;z-index:110;opacity:.06"><filter id="gn"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"></feTurbulence></filter><rect width="100%" height="100%" filter="url(#gn)"></rect></svg>
 <div aria-hidden="true" style="position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:linear-gradient(90deg,#FFB066,var(--ac));transform-origin:0 50%;transform:scaleX(var(--p,0));box-shadow:0 0 12px var(--ac)"></div>
 <div aria-hidden="true" style="position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(255,107,0,.16),transparent 65%);transform:translate3d(calc(var(--cx,-900) * 1px),calc(var(--cy,-900) * 1px),0);transition:transform .12s ease-out"></div>
 
@@ -232,7 +231,7 @@ html{scroll-behavior:auto}
 </defs></svg>
 
 <!-- ================= NAV ================= -->
-<div style="position:sticky;top:0;z-index:40;background:rgba(5,5,5,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)">
+<div style="position:sticky;top:0;z-index:40;background:rgba(5,5,5,.94);border-bottom:1px solid rgba(255,255,255,.06)">
 <div class="navbar" style="max-width:1200px;margin:0 auto;padding:14px 20px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
 <a href="#inicio" style="font-weight:800;font-size:21px;letter-spacing:.02em;color:#FFFFFF;text-transform:uppercase">Inteligencia<span style="color:var(--ac)">.VE</span></a>
 <div class="navpill" style="display:flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)">
@@ -247,8 +246,8 @@ html{scroll-behavior:auto}
 
 <!-- ================= HERO ================= -->
 <div id="inicio" style="position:relative;overflow:hidden">
-<div class="blob" aria-hidden="true" style="position:absolute;right:-12%;top:-8%;width:62vw;max-width:820px;height:62vw;max-height:820px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.55),rgba(255,107,0,0) 68%);filter:blur(40px);transform:translateY(calc(min(var(--sy,0),1200) * .2px))"></div>
-<div class="blob" aria-hidden="true" style="position:absolute;left:-18%;top:42%;width:50vw;max-width:640px;height:50vw;max-height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,150,40,.28),rgba(255,150,40,0) 68%);filter:blur(50px);animation-delay:-6s"></div>
+<div class="blob" aria-hidden="true" style="position:absolute;right:-12%;top:-8%;width:62vw;max-width:820px;height:62vw;max-height:820px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.55),rgba(255,107,0,0) 68%);transform:translateY(calc(min(var(--sy,0),1200) * .2px))"></div>
+<div class="blob" aria-hidden="true" style="position:absolute;left:-18%;top:42%;width:50vw;max-width:640px;height:50vw;max-height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,150,40,.28),rgba(255,150,40,0) 68%);animation-delay:-6s"></div>
 <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none">
 <span class="pt" style="left:8%;top:78%;width:5px;height:5px;--dur:7s;--d:0s"></span>
 <span class="pt" style="left:18%;top:64%;width:3px;height:3px;--dur:5.5s;--d:1.2s"></span>
@@ -492,7 +491,7 @@ html{scroll-behavior:auto}
 
 <!-- ================= CATÁLOGO INTERACTIVO ================= -->
 <div id="catalogo" style="position:relative;overflow:hidden;background:#0B0B0B;border-top:1px solid #1E1E1E;border-bottom:1px solid #1E1E1E">
-<div class="blob" aria-hidden="true" style="position:absolute;left:40%;top:8%;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.3),rgba(255,107,0,0) 68%);filter:blur(40px)"></div>
+<div class="blob" aria-hidden="true" style="position:absolute;left:40%;top:8%;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,0,.3),rgba(255,107,0,0) 68%)"></div>
 <div style="position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:110px 20px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:56px 56px;align-items:center">
 <div data-reveal="left" style="flex:1 1 380px;min-width:0">
 <div style="font-size:18px;color:#C4C4C4;margin-bottom:14px"><span style="color:var(--ac)">03/</span> el caso del taller</div>
@@ -655,6 +654,10 @@ class Page {
 
     // ---- Scroll: progreso, parallax, relleno de texto, inclinación por velocidad ----
     const fills = Array.prototype.slice.call(root.querySelectorAll('[data-fill]'));
+    const sel = (k) => Array.prototype.slice.call(root.querySelectorAll('[style*="var(' + k + '"]'));
+    const T = { '--sy': sel('--sy'), '--p': sel('--p'), '--cx': sel('--cx') };
+    const setV = (k, v) => { const L = T[k === '--cy' ? '--cx' : k]; for (let i = 0; i < L.length; i++) L[i].style.setProperty(k, v); };
+    const phone = window.matchMedia && window.matchMedia('(max-width:640px), (pointer:coarse)').matches;
     let lastY = 0, ticking = false;
     this._skew = 0;
     this._lastAct = performance.now();
@@ -669,8 +672,8 @@ class Page {
         if (t && t.nodeType === 1 && t !== document.body && t.scrollHeight > t.clientHeight + 400) el = t;
         const y = el.scrollTop;
         const max = Math.max(1, el.scrollHeight - el.clientHeight);
-        fx.style.setProperty('--sy', String(y));
-        fx.style.setProperty('--p', String(Math.min(1, y / max)));
+        if (!phone) setV('--sy', String(y));
+        setV('--p', String(Math.min(1, y / max)));
         this._skew = Math.max(-10, Math.min(10, this._skew + (y - lastY) * 0.12));
         lastY = y;
         const vh = window.innerHeight || 800;
@@ -702,8 +705,7 @@ class Page {
       const P = this._ptr;
       P.x = e.clientX; P.y = e.clientY; P.t = now;
       P.mouse = e.pointerType === 'mouse'; P.inside = true;
-      fx.style.setProperty('--cx', String(e.clientX));
-      fx.style.setProperty('--cy', String(e.clientY));
+      if (P.mouse) { setV('--cx', String(e.clientX)); setV('--cy', String(e.clientY)); }
       const tg = e.target && e.target.closest ? e.target : null;
       if (!tg) return;
       const sp = tg.closest('[data-spot]');
@@ -734,8 +736,8 @@ class Page {
       resetMag(magged); magged = null;
       if (!e || e.type === 'pointerleave') {
         this._ptr.inside = false;
-        fx.style.setProperty('--cx', '-900');
-        fx.style.setProperty('--cy', '-900');
+        setV('--cx', '-900');
+        setV('--cy', '-900');
       }
     };
     this._onDown = (e) => {
